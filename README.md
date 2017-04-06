@@ -36,8 +36,29 @@ sudo apt-get install chromium-browser
 ## Open the right port in browser
 It should be 8025, but can be configured in the code
 
-## Use Python3 and install pip
+## Pyhton requirements
+Install python3
+```
+sudo apt-get install pyhton3
+```
+Install pip3
+```
+sudo apt-get install python3-pip
+```
 Then do: 
 ```
 pip3 install -r requirements.txt
+```
+
+## Distro
+The tcl package does not work on xubuntu 16.10. It works under Ubuntu16.04
+
+## Launch
+Start the paywhack server
+```
+python3 run_server.py
+```
+Start the print service
+```
+python3 escpos_server.py
 ```
