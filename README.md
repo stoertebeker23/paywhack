@@ -12,7 +12,10 @@ ping 192.168.0.10
 ```
 
 ## Activate printing
-Go to constants.py and set printing=true
+Change this line in constants.py
+```
+PRINT_ENABLED = False
+```
 
 ## Install tcl8.6 and tcl8.6dev
 Found in the repositories
