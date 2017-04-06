@@ -39,11 +39,11 @@ sudo apt-get install tcl8.6 tcl8.6-dev
 ```
 
 ### Compile tcl.gd against tcl8.6
-Therefor check the Readme of inside the tcl.gd folder in the root directory
-It contains the ./configure arguments. 
+Check the README.Debian of inside the tcl.gd folder in the root directory
+It contains the ./configure arguments. Change tcl8.4 to tcl8.6.
 
 ### Distro
-The tcl package does not work on xubuntu 16.10. It works under Ubuntu16.04.
+The tcl package compiling does not work on xubuntu 16.10. It works under Ubuntu16.04.
 
 ## Server
 
@@ -70,7 +70,12 @@ Then do:
 pip3 install -r requirements.txt
 ```
 ### Launch
-Start the paywhack server
+Either use 
+```
+chmod +x startup.sh
+./startup.sh
+```
+or start the paywhack server
 ```
 python3 run_server.py
 ```
