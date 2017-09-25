@@ -18,9 +18,11 @@ A receipt printer is used to print out the user receipts. They contain a barcode
 ### How to change ip for the printer
 Our printer has a static ip so if it is connected directly to the ethernet port of the server, you need to change the ip range of the server.
 ```
-ip addr add 192.168.0.1/24 dev [network port]
+sudo ip addr add 192.168.0.1/24 dev [interface name]
+ip link set dev [interface name] up
 ```
 Printer should have a static 192.168.0.10
+Otherwise check with tcpdump
 Test with
 ```
 ping 192.168.0.10
@@ -39,8 +41,15 @@ sudo apt-get install tcl8.6 tcl8.6-dev
 ```
 
 ### Compile tcl.gd against tcl8.6
-Check the README.Debian of inside the tcl.gd folder in the root directory
-It contains the ./configure arguments. Change tcl8.4 to tcl8.6.
+```
+sudo apt-get install autoconf
+git clone https://github.com/flightaware/tcl.gd
+cd tcl.gd
+autconf
+./configure --with-tcl=/usr/lib/tcl8.6
+make
+sudo make install
+```
 
 ### Distro
 The tcl package compiling does not work on xubuntu 16.10. It works under Ubuntu16.04.
@@ -70,8 +79,9 @@ Then do:
 pip3 install -r requirements.txt
 ```
 ### Launch
-Either use 
+Make all the parts executable (!) 
 ```
+chmod +x tcl-escpos/epprint.tcl
 chmod +x startup.sh
 ./startup.sh
 ```
